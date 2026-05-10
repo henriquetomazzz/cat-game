@@ -1,0 +1,5 @@
+PRODUCT_NAME = pegue_o_gato
+
+PRODUCT_BUNDLE_IDENTIFIER = com.joguinhogato.pegueOGato
+
+PRODUCT_COPYRIGHT = Copyright © 2026 com.joguinhogato. All rights reserved.
