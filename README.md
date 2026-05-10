@@ -26,7 +26,7 @@ No **Windows**, baixe o ZIP do site do Flutter e extraia em `C:\flutter`. Depois
 ### 2. Clonar o projeto
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/henriquetomazzz/cat-game.git
 cd cat-game
 ```
 
