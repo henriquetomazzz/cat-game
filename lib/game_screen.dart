@@ -90,11 +90,9 @@ class _GameScreenState extends State<GameScreen>
     _hexSize = size;
     _boardOrigin = Offset(originX, originY);
 
-    if (_catFromPos == null) {
-      _catFromPos =
-          _getHexCenter(_model.catRow, _model.catCol, _hexSize, _boardOrigin);
-      _catToPos = _catFromPos;
-    }
+    _catToPos =
+        _getHexCenter(_model.catRow, _model.catCol, _hexSize, _boardOrigin);
+    _catFromPos ??= _catToPos;
   }
 
   Position? _hexAtPoint(Offset point) {
