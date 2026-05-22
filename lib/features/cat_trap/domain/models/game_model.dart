@@ -1,25 +1,10 @@
-import 'dart:math';
 import 'dart:collection';
+import 'dart:math';
 
-enum CellContent { empty, fence, cat }
-
-enum GameState { playing, catWins, fenceWins }
-
-class Position {
-  final int row;
-  final int col;
-  const Position(this.row, this.col);
-
-  @override
-  bool operator ==(Object other) =>
-      other is Position && row == other.row && col == other.col;
-
-  @override
-  int get hashCode => row * 31 + col;
-
-  @override
-  String toString() => '($row, $col)';
-}
+import '../enums/cell_content.dart';
+import '../enums/game_state.dart';
+import 'position.dart';
+import 'scored_move.dart';
 
 class GameModel {
   static const int boardSize = 11;
@@ -237,7 +222,7 @@ class GameModel {
       }
     }
 
-    List<_ScoredMove> scored = [];
+    List<ScoredMove> scored = [];
     for (var c in candidates) {
       if (_board[c.row][c.col] != CellContent.empty) continue;
 
@@ -245,7 +230,7 @@ class GameModel {
       int score = _evaluateCatBestResponse() + _wallBonus(c) * 8;
       _board[c.row][c.col] = CellContent.empty;
 
-      scored.add(_ScoredMove(c, score));
+      scored.add(ScoredMove(c, score));
     }
 
     scored.sort((a, b) => b.score.compareTo(a.score));
@@ -404,10 +389,4 @@ class GameModel {
     _scoreCat = 0;
     _scoreFence = 0;
   }
-}
-
-class _ScoredMove {
-  final Position move;
-  final int score;
-  _ScoredMove(this.move, this.score);
 }

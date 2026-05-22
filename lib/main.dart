@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
-import 'game_screen.dart';
+
+import 'features/cat_trap/presentation/screens/game_screen.dart';
 
 void main() {
-  runApp(const PegueOGatoApp());
+  runApp(const CatTrapApp());
 }
 
-class PegueOGatoApp extends StatelessWidget {
-  const PegueOGatoApp({super.key});
+class CatTrapApp extends StatelessWidget {
+  const CatTrapApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pegue o Gato',
+      title: 'Cat Trap',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF0D0D1A),
-        colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF4A90D9),
-          secondary: Color(0xFFE94560),
-          surface: Color(0xFF1A1A2E),
-        ),
-        useMaterial3: true,
-      ),
+      theme: ThemeData.dark(),
       home: const GameScreen(),
     );
   }
