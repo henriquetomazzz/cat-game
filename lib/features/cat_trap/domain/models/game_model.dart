@@ -37,7 +37,7 @@ class GameModel {
     _state = GameState.playing;
     _isPlayerTurn = true;
 
-    int fenceCount = _random.nextInt(9) + 14;
+    int fenceCount = _random.nextInt(9) + 7;
     int maxAttempts = 80;
     for (int attempt = 0; attempt < maxAttempts; attempt++) {
       _board = List.generate(
